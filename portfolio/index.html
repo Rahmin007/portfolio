@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rahmin Amer Zaman — Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Rahmin Amer Zaman — Computer Science graduate (BRAC University, 2026). Full-stack web, AI/ML, RAG and HCI projects."
+    />
+    <meta name="theme-color" content="#07060d" />
+    <meta property="og:title" content="Rahmin Amer Zaman — Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="Full-stack web, AI/ML and HCI projects by Rahmin Amer Zaman."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Boot screen (shown once per visit, skipped with reduced motion) -->
+    <div class="boot" id="boot" aria-hidden="true">
+      <div class="boot__panel">
+        <p class="boot__title">RAHMIN.EXE</p>
+        <ol class="boot__log" id="boot-log"></ol>
+        <div class="boot__bar"><span id="boot-bar"></span></div>
+        <p class="boot__hint">Click or press any key to skip</p>
+      </div>
+    </div>
+
+    <canvas id="web-canvas" class="web-canvas" aria-hidden="true"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="hp-bar" aria-hidden="true"><span id="hp-fill"></span></div>
+
+    <header class="hud" id="top">
+      <nav class="hud__nav container" aria-label="Main">
+        <a href="#home" class="logo glitch" data-text="RZ//">RZ//</a>
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span class="sr-only">Menu</span>
+          <span class="menu-toggle__bars" aria-hidden="true"></span>
+        </button>
+        <ul class="hud__links" id="nav-links">
+          <li><a href="#home"><span>01</span>Start</a></li>
+          <li><a href="#bio"><span>02</span>Bio</a></li>
+          <li><a href="#skills"><span>03</span>Skill Tree</a></li>
+          <li><a href="#missions"><span>04</span>Missions</a></li>
+          <li><a href="#quests"><span>05</span>Quest Log</a></li>
+          <li><a href="#contact"><span>06</span>Contact</a></li>
+        </ul>
+        <p class="hud__ach" title="Achievements unlocked">
+          <span class="sr-only">Achievements unlocked:</span>
+          <span aria-hidden="true">ACH</span> <strong id="ach-count">0</strong>/<span id="ach-total">5</span>
+        </p>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- HERO / PLAYER SELECT -->
+      <section class="hero container" id="home" aria-labelledby="hero-name">
+        <div class="hero__copy">
+          <p class="tag">&gt; PLAYER 1 READY_</p>
+          <h1 id="hero-name" class="hero__name">
+            <span class="glitch" data-text="RAHMIN">RAHMIN</span>
+            <span class="hero__name-2">AMER ZAMAN</span>
+          </h1>
+          <p class="hero__role">
+            <span class="hero__role-label">CLASS:</span>
+            <span id="typer" class="typer">Full-Stack Developer</span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero__intro">
+            Computer Science graduate from BRAC University (2026). I build full-stack web apps and
+            AI services, train deep learning models, and study how design changes the choices people
+            make.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#missions">Start mission</a>
+            <a class="btn btn--ghost" href="assets/Rahmin_Amer_Zaman_CV.pdf" download>
+              Download CV
+            </a>
+          </div>
+        </div>
+
+        <aside class="card sheet" aria-label="Character sheet">
+          <figure class="portrait">
+            <img
+              src="assets/rahmin-720.webp"
+              srcset="assets/rahmin-360.webp 360w, assets/rahmin-720.webp 720w"
+              sizes="(max-width: 600px) 90vw, 420px"
+              width="720"
+              height="720"
+              alt="Portrait of Rahmin Amer Zaman"
+            />
+            <span class="portrait__corners" aria-hidden="true"></span>
+            <span class="portrait__scan" aria-hidden="true"></span>
+            <figcaption>
+              <span class="sheet__label">PLAYER 1</span>
+              <span class="sheet__name">Rahmin_007</span>
+              <span class="sheet__status"><i></i>ONLINE</span>
+            </figcaption>
+          </figure>
+          <dl class="sheet__stats">
+            <div><dt>Class</dt><dd>Full-Stack Dev</dd></div>
+            <div><dt>Spec</dt><dd>AI / ML · HCI</dd></div>
+            <div><dt>Guild</dt><dd>BRAC University · CSE '26</dd></div>
+            <div><dt>Base</dt><dd>Dhaka, Bangladesh</dd></div>
+            <div><dt>Quest</dt><dd>Junior Software Engineer roles</dd></div>
+          </dl>
+          <div class="sheet__xp">
+            <div class="sheet__xp-row"><span>Main quest: BSc CS</span><span class="done">Completed ✓</span></div>
+            <div class="xp"><span style="--w: 100%"></span></div>
+          </div>
+          <ul class="sheet__counts">
+            <li><strong data-count="projects">10</strong><span>Projects</span></li>
+            <li><strong>6</strong><span>Languages</span></li>
+            <li><strong>1</strong><span>AWS cert</span></li>
+          </ul>
+        </aside>
+
+        <a href="#bio" class="scroll-cue" aria-label="Scroll to bio">
+          <span></span>
+        </a>
+      </section>
+
+      <!-- BIO -->
+      <section class="section container" id="bio" aria-labelledby="bio-title">
+        <header class="section__head">
+          <p class="tag">[02] PLAYER BIO</p>
+          <h2 id="bio-title" class="section__title glitch-hover" data-text="About me">About me</h2>
+        </header>
+        <div class="terminal card">
+          <div class="terminal__bar" aria-hidden="true">
+            <i></i><i></i><i></i><span>~/rahmin/about.txt</span>
+          </div>
+          <div class="terminal__body">
+            <p><span class="prompt">$</span> cat about.txt</p>
+            <p>
+              I'm a <strong>Computer Science graduate</strong> from
+              <strong>BRAC University</strong> (BSc, 2022–2026) with a strong interest in AI, data
+              and human-centred technology.
+            </p>
+            <p>
+              I enjoy building across the stack: <strong>React and Node.js</strong> web apps, a
+              <strong>retrieval-augmented generation (RAG)</strong> API with FastAPI,
+              <strong>deep learning</strong> for medical imaging, low-level <strong>C</strong>
+              systems, and even a 3D OpenGL game. My undergraduate thesis asked a simple question —
+              does the way a menu looks change what people eat? (It does: sustainable choices went
+              from 22% to 58%.)
+            </p>
+            <p>
+              I like problems where engineering meets people, and I'm looking for a junior software
+              engineering role where I can ship real products and keep learning fast.
+            </p>
+            <p><span class="prompt">$</span> <span class="caret caret--block" aria-hidden="true"></span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section container" id="skills" aria-labelledby="skills-title">
+        <header class="section__head">
+          <p class="tag">[03] SKILL TREE</p>
+          <h2 id="skills-title" class="section__title glitch-hover" data-text="Unlocked skills">
+            Unlocked skills
+          </h2>
+        </header>
+        <div class="skills" id="skill-tree"></div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section container" id="missions" aria-labelledby="missions-title">
+        <header class="section__head">
+          <p class="tag">[04] MISSIONS COMPLETED</p>
+          <h2 id="missions-title" class="section__title glitch-hover" data-text="Projects">
+            Projects
+          </h2>
+        </header>
+        <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
+        <ul class="missions" id="mission-list"></ul>
+      </section>
+
+      <!-- EDUCATION + ACHIEVEMENTS -->
+      <section class="section container" id="quests" aria-labelledby="quests-title">
+        <header class="section__head">
+          <p class="tag">[05] QUEST LOG</p>
+          <h2 id="quests-title" class="section__title glitch-hover" data-text="Education">
+            Education
+          </h2>
+        </header>
+        <div class="quests">
+          <ol class="timeline">
+            <li class="timeline__item card">
+              <p class="timeline__when">2022 — 2026 · Graduated</p>
+              <h3>BSc in Computer Science</h3>
+              <p class="timeline__where">BRAC University · School of Data and Sciences · Dhaka</p>
+              <p>
+                Thesis (CSE400): <em>SmartPlate</em> — a team HCI study on how menu design shapes
+                food choices. Coursework across data structures, algorithms, operating systems, networks,
+                databases, AI and computer vision.
+              </p>
+            </li>
+            <li class="timeline__item card">
+              <p class="timeline__when">2020</p>
+              <h3>Higher Secondary Certificate (Science)</h3>
+              <p class="timeline__where">Govt. Syed Hatem Ali College · Barishal</p>
+            </li>
+            <li class="timeline__item card">
+              <p class="timeline__when">2018</p>
+              <h3>Secondary School Certificate (Science)</h3>
+              <p class="timeline__where">Barishal Zilla School · Barishal</p>
+            </li>
+          </ol>
+
+          <div class="trophies">
+            <h3 class="trophies__title">Achievements</h3>
+            <ul>
+              <li class="trophy card">
+                <span class="trophy__icon" aria-hidden="true">AWS</span>
+                <div>
+                  <p class="trophy__name">AWS Academy Graduate — Cloud Foundations</p>
+                  <p class="trophy__meta">Amazon Web Services · Jan 2026 · 20 hrs</p>
+                </div>
+              </li>
+              <li class="trophy card">
+                <span class="trophy__icon" aria-hidden="true">HCI</span>
+                <div>
+                  <p class="trophy__name">Undergraduate thesis approved</p>
+                  <p class="trophy__meta">SmartPlate · BRAC University · Jan 2026</p>
+                </div>
+              </li>
+              <li class="trophy card">
+                <span class="trophy__icon" aria-hidden="true">x<span data-count="projects">10</span></span>
+                <div>
+                  <p class="trophy__name"><span data-count="projects">10</span> public projects on GitHub</p>
+                  <p class="trophy__meta">Web · AI/ML · Systems · Graphics · HCI</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section container" id="contact" aria-labelledby="contact-title">
+        <div class="contact card">
+          <p class="tag">[06] JOIN MY PARTY</p>
+          <h2 id="contact-title" class="contact__title glitch" data-text="Let's build something">
+            Let's build something
+          </h2>
+          <p class="contact__text">
+            Open to junior software engineering roles, internships and interesting collaborations.
+            The fastest way to reach me is email.
+          </p>
+          <div class="contact__actions">
+            <a class="btn btn--primary" id="email-link" href="mailto:rahmin.raieef@gmail.com">
+              rahmin.raieef@gmail.com
+            </a>
+            <button class="btn btn--ghost" id="copy-email" type="button">Copy email</button>
+          </div>
+          <ul class="socials">
+            <li><a id="github-link" href="https://github.com/Rahmin007" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a id="linkedin-link" href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="assets/Rahmin_Amer_Zaman_CV.pdf" download>CV (PDF)</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>© <span id="year">2026</span> Rahmin Amer Zaman · Built with HTML, CSS &amp; JavaScript</p>
+      <p class="footer__hint">Psst… try the Konami code: ↑ ↑ ↓ ↓ ← → ← → B A</p>
+    </footer>
+
+    <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
