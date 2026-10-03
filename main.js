@@ -11,13 +11,13 @@
    --------------------------------------------------------- */
 const LINKS = {
   github: 'https://github.com/Rahmin007',
-  // TODO: paste your LinkedIn profile URL here, e.g. 'https://www.linkedin.com/in/your-name'
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/rahmin-amer-zaman',
   email: 'rahmin.raieef@gmail.com',
 };
 
 const ROLES = [
   'Full-Stack Developer',
+  'Real-Time Web Apps',
   'Frontend Engineer',
   'AI / RAG Engineer',
   'Deep Learning Tinkerer',
@@ -38,7 +38,7 @@ const SKILLS = [
     icon: 'WEB',
     accent: '#ff2a6d',
     level: 'Main class',
-    items: ['React', 'Node.js', 'Express', 'FastAPI', 'MongoDB', 'Socket.io', 'Zustand', 'Tailwind CSS', 'Vite', 'JWT auth', 'PHP', 'MySQL'],
+    items: ['React', 'Node.js', 'Express', 'FastAPI', 'MongoDB', 'Socket.io', 'WebSockets', 'REST APIs', 'Zustand', 'Tailwind CSS', 'Vite', 'JWT auth', 'Leaflet maps', 'PHP', 'MySQL'],
   },
   {
     title: 'AI / Machine Learning',
@@ -66,7 +66,7 @@ const SKILLS = [
     icon: 'OPS',
     accent: '#ff9f1c',
     level: 'Inventory',
-    items: ['Git & GitHub', 'GitHub Actions', 'Docker', 'AWS', 'Vercel', 'Pytest', 'Vitest', 'Playwright', 'Linux', 'Jupyter'],
+    items: ['Git & GitHub', 'GitHub Actions', 'Docker', 'AWS', 'Vercel', 'Render', 'MongoDB Atlas', 'Pytest', 'Vitest', 'Playwright', 'Linux', 'Jupyter'],
   },
 ];
 
@@ -86,17 +86,28 @@ const REPO = (name) => `https://github.com/Rahmin007/${name}`;
 
 const PROJECTS = [
   {
-    title: 'DocuSense',
-    subtitle: 'Grounded RAG question-answering API',
-    category: 'ai',
-    context: 'Personal project',
+    title: 'NEON//CORE',
+    subtitle: 'Real-time multi-user chat with an AI member',
+    category: 'web',
+    context: 'Full-stack project',
     featured: true,
     description:
-      'A retrieval-augmented generation (RAG) service that answers questions from internal documentation, and refuses when the documents don’t support an answer. Documents are chunked deterministically (800 characters, 120 overlap), embedded, searched by cosine similarity with a threshold, and answered with citations that are validated against the retrieved evidence.',
-    outcome:
-      'Pluggable providers: OpenAI, Sentence Transformers or offline TF-IDF embeddings; OpenAI, Anthropic or extractive answers. Guards against instruction injection.',
-    stack: ['Python', 'FastAPI', 'NumPy', 'Scikit-learn', 'Pytest', 'Docker', 'GitHub Actions'],
-    links: { code: REPO('docusense-rag-service') },
+      'A live group chat where messages appear instantly for everyone and an AI replies when someone types @ai. User, moderator and admin roles: mute with a countdown, warnings users must acknowledge, message deletion and account bans that take effect immediately, plus an admin dashboard and a MongoDB activity log.',
+    outcome: 'Deployed on Vercel + Render + MongoDB Atlas, with automated tests running on GitHub Actions',
+    stack: ['React', 'FastAPI', 'WebSockets', 'MongoDB', 'Tailwind CSS', 'Pytest', 'Vercel', 'Render'],
+    links: { live: 'https://neon-core-vert.vercel.app', code: REPO('NEON-CORE-MULTI-USER-AI-CHAT-REAL-TIME-NODE') },
+  },
+  {
+    title: 'Save Lives',
+    subtitle: 'Blood donation platform',
+    category: 'web',
+    context: 'Full-stack project',
+    featured: true,
+    description:
+      'Connects blood donors with people in need: find nearby donors on a map, post requests that instantly alert donors with a matching blood group within 5 km, and chat in real time. Blood-bank requests go to an admin dashboard where approving one updates the bank\'s stock.',
+    outcome: 'Secure cookie login, owner-only edits, rate limiting; one Render service serves the API and the React site',
+    stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Leaflet', 'Zustand', 'Render'],
+    links: { live: 'https://save-lives-na0t.onrender.com', code: REPO('save-lives-blood-donation-platform') },
   },
   {
     title: 'SmartPlate',
@@ -112,15 +123,16 @@ const PROJECTS = [
     links: { code: REPO('smartplate-hci-thesis') },
   },
   {
-    title: 'Save Lives',
-    subtitle: 'Blood donation platform',
-    category: 'web',
-    context: 'Full-stack project',
+    title: 'DocuSense',
+    subtitle: 'Grounded RAG question-answering API',
+    category: 'ai',
+    context: 'Personal project',
     description:
-      'Connects blood donors with people in need: post blood requests, search donors by blood group, location and availability, manage blood bank requests, and chat in real time. Includes notifications and an admin panel.',
-    outcome: 'JWT auth with access + refresh tokens in cookies, and real-time messaging over Socket.io',
-    stack: ['React', 'Vite', 'Zustand', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'JWT'],
-    links: { code: REPO('save-lives-blood-donation-platform') },
+      'A retrieval-augmented generation (RAG) service that answers questions from internal documentation, and refuses when the documents don’t support an answer. Documents are chunked deterministically (800 characters, 120 overlap), embedded, searched by cosine similarity with a threshold, and answered with citations that are validated against the retrieved evidence.',
+    outcome:
+      'Pluggable providers: OpenAI, Sentence Transformers or offline TF-IDF embeddings; OpenAI, Anthropic or extractive answers. Guards against instruction injection.',
+    stack: ['Python', 'FastAPI', 'NumPy', 'Scikit-learn', 'Pytest', 'Docker', 'GitHub Actions'],
+    links: { code: REPO('docusense-rag-service') },
   },
   {
     title: 'ByteSpace',
